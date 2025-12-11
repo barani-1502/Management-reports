@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REPORTS LOGIN</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-box {
+        background: white;
+        width: 350px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .login-box h2 {
+        margin-bottom: 25px;
+        font-size: 20px;
+        color: #333;
+    }
+
+    .login-box input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .login-box input:focus {
+        border-color: #4A90E2;
+        box-shadow: 0px 0px 4px rgba(74,144,226,0.6);
+    }
+
+    .login-box button {
+        width: 100%;
+        background: #4A90E2;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .login-box button:hover {
+        background: #3b7bc2;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="login-box">
+    <img src="Image (1).svg" alt="Logo">
+<center><h2>REPORTS LOGIN</h2></center>
+<br>
+
+<center><input type="email" id="Email" placeholder="ENTER YOUR EMAIL"></center>
+<center><input type="password" id="Password" placeholder="ENTER PASSWORD"></center>
+<center><button onclick="validate()">SUBMIT</button></center>
+</div>
+
+<script>
+async function validate() {
+    const email = document.getElementById("Email").value;
+    const password = document.getElementById("Password").value;
+
+    if(email === "ajmalnathir@gmail.com" && password === "ajmal123") {
+        alert("LOGIN SUCCESSFUL");
+        window.location.href = 'http://127.0.0.1:5500/';
+        return;
+    }
+
+    if (email!="ajmalnathir@gmail.com" && password!="ajmal123") {
+        alert("INVALID CREDENTIALS");
+        return;
+    }
+    if (password!="ajmal123") {
+        alert("INVALID PASSWORD");
+        return;
+    }
+    if (email!="ajmalnathir@gmail.com") {
+        alert("INVALID EMAIL");
+        return;
+    }
+
+    if (!email || !password) {
+        alert("PLEASE FILL ALL THE DETAILS");
+        return;
+    }
+
+
+    const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    
+    if (data.success) {
+        alert("LOGIN SUCCESSFULLYY");
+        window.location.href = "http://127.0.0.1:5500/";
+    } else {
+        alert(data.message);
+    }
+}
+</script>
+
+</body>
+</html>
+
+
