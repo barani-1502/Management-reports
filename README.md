@@ -13,6 +13,7 @@ NodeJS
 
 
 Report Components (10 Modules)
+
 Daily Revenue & Ride Summary
 Displays overall revenue and ride count trends.
 
