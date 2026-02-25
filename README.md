@@ -1,10 +1,11 @@
 Management Reports Dashboard
-Project Overview
+Project Overview : 
 Management Reports Dashboard is a frontend-based web application developed to visualize and present 10 key management reports for business monitoring and decision-making.
 
 The application focuses on clean UI design, structured reporting, and consistent color theming, providing a clear and user-friendly dashboard experience for management users.
 
 Tech Stack
+
 HTML5
 CSS3
 JavaScript
